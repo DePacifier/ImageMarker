@@ -1,8 +1,11 @@
 from PIL import Image, ImageDraw, ImageFont
 
-image = Image.open("Screenshot (1).png")
+
 marker = Image.open("marker.png")
 markerX, markerY = marker.size
+
+def loadImage(path):
+    return Image.open(path)
 
 def picMark(pic):
     picX, picY = pic.size
@@ -20,4 +23,9 @@ def textMark(pic):
 
     return pic
 
-textMark(image).show()
+#Loading An Image
+image = loadImage("Screenshot (1).png")
+#Using Text Marking
+#textMark(image).show()
+#Using Picture Marking
+picMark(image).show()
