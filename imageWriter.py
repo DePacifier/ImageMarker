@@ -48,6 +48,22 @@ class Window(Frame):
         target.insert(0,self.filename)
         return
 
+    def picMark(self, pic, marker):
+        picX, picY = pic.size
+        markerX, markerY = marker.size
+        pic.paste(marker,(picX - markerX ,picY - markerY))
+        
+        return pic
+
+    def textMark(self, pic, text):
+        picX, picY = pic.size
+        draw =ImageDraw.Draw(pic)
+        font = ImageFont.truetype("CuteFont-Regular.ttf", size=40)
+        location = (picX // 2, picY // 2)
+        draw.text((location), text, fill = "blue", font = font)
+
+        return pic
+
     # Places watermark on image 
     # Not handled yet!
     def processWatermark(self):
@@ -59,27 +75,17 @@ class Window(Frame):
         # Pass the image paths to their handlers
         image = Image.open(self.enterImageEntry.get())
         marker = Image.open(self.enterWatermarkEntry.get())
-        markerX, markerY = marker.size
+        inputText = self.extraTextEntry.get()
         
         # TO-DO
         # Fix picMark and textMark (combine them??)
         # Output to a file
+        image = self.picMark(image, marker)
+        image = self.textMark(image, inputText)
 
-    def picMark(pic):
-        picX, picY = pic.size
-        pic.paste(marker,(picX - markerX ,picY - markerY))
-        
-        return pic
+        image.show()
 
-    def textMark(pic):
-        picX, picY = pic.size
-        draw =ImageDraw.Draw(pic)
-        font = ImageFont.truetype("CuteFont-Regular.ttf", size=40)
-        location = (picX // 2, picY // 2)
-        text = "Dan Carr\nPhotography"
-        draw.text((location), text, fill = "blue", font = font)
-
-        return pic
+    
 
 # textMark(image).show()
 root = Tk()
