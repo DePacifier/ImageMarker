@@ -3,7 +3,6 @@ from tkinter.filedialog import askopenfilename
 from PIL import Image, ImageDraw, ImageFont
 
 class Window(Frame):
-    
     def __init__(self, master = None):
         Frame.__init__(self, master)
 
