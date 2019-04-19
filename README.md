@@ -4,7 +4,7 @@ A python program that marks images
 
 ##  Water marker for images
 
-# Requirements: python 3.6 and PIL(Python image library)
+####### Requirements: python 3.6 and PIL(Python image library)
 
 
 To open right click on "imageWriter.py" and click edit with IDLE and press "F5"
