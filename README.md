@@ -2,7 +2,6 @@ Image marker
 ===============
 A python program that marks images
 
-##  Water marker for images
 
 ## Requirements and Operating the program
 
