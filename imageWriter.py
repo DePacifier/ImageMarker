@@ -83,6 +83,8 @@ class Window(Frame):
         image = self.picMark(image, marker)
         image = self.textMark(image, inputText)
 
+        newFileName = str(self.enterImageEntry.get()).rpartition(".")[0] + "-Marked.png"
+        image.save(newFileName)
         image.show()
 
     
